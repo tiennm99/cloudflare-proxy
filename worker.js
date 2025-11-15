@@ -41,7 +41,7 @@ async function handleRequest(request) {
     headers.delete("x-real-ip");
     headers.delete("forwarded");
     headers.delete("cdn-loop");
-    
+
     const contentType = headers.get("Content-Type");
     if (contentType && contentType.startsWith("application/json") && !contentType.includes("charset")) {
       headers.set("Content-Type", "application/json; charset=UTF-8");
@@ -65,7 +65,7 @@ async function handleRequest(request) {
     // Nếu là HTML, xử lý lại nội dung để rewrite URL
     if (resContentType.includes("text/html")) {
       let html = await proxiedRes.text();
-      const baseProxy = `https://proxy.kimtin-tr.workers.dev/?url=`;
+      const baseProxy = `https://cloudflare-proxy.miti99.workers.dev/?url=`;
 
       // Chuyển các href/src/action thành proxy link
       html = html.replace(
