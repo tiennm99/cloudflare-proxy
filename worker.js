@@ -65,7 +65,7 @@ async function handleRequest(request) {
     // Nếu là HTML, xử lý lại nội dung để rewrite URL
     if (resContentType.includes("text/html")) {
       let html = await proxiedRes.text();
-      const baseProxy = `https://cloudflare-proxy.miti99.workers.dev/?url=`;
+      const baseProxy = `https://cloudflare-proxy.tiennm99.workers.dev/?url=`;
 
       // Chuyển các href/src/action thành proxy link
       html = html.replace(
